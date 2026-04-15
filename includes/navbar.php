@@ -14,7 +14,11 @@
             <div class="nav-links">
                 <a href="../pages/katalogoa.php">KATALOGOA</a>
                 <a href="../pages/puntuPizzak.php"> PUNTUAK </a>
-                <a href="../pages/HasiSaioa.php">HASI SAIO</a>
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <a href="../pages/itxiSaioa.php">ITXI SAIOA</a>
+                <?php else: ?>
+                    <a href="../pages/HasiSaioa.php">HASI SAIO</a>
+                <?php endif; ?>
                 <a href="karritoa.php" class="nav-saskia">
                     <img src="../argazkiak/saskia.png" alt="Saskia" class="saskia-img">
                 </a>

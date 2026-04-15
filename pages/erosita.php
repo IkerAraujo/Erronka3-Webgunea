@@ -29,6 +29,11 @@ $stmt->bind_param("isssd",
 
 $stmt->execute();
 
+// Eskaera sukaldarian pantailan agertzeko
+$stmt2 = $conn->prepare("INSERT INTO eskaerak (erabiltzaile_id, egoera) VALUES (?, 'Prestatzeko zain')");
+$stmt2->bind_param("i", $erabiltzaile_id);
+$stmt2->execute();
+
 $_SESSION['karrito'] = [];
 
 $xmlPath = __DIR__ . "/../xml/puntuak.xml";

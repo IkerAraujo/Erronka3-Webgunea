@@ -275,10 +275,24 @@ footer {
   .nav {
     flex-direction: row;
     align-items: center;
+    padding: 0.75rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .nav-top {
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  .bilatzailea {
+    flex: 1;
+    max-width: 40%;
+    margin: 0;
   }
 
   .nav-links {
     justify-content: flex-end;
+    margin-left: auto;
   }
 
   .produktuen-sarea {
@@ -294,6 +308,10 @@ footer {
 
   nav {
     padding: 1rem 3rem;
+  }
+
+  .bilatzailea {
+    max-width: 35%;
   }
 
   .nav-links a {

@@ -218,16 +218,24 @@ nav {
 }
 
 /* TABLETA */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
 
   .nav {
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .nav-top {
+    width: auto;
+    flex: 0 0 auto;
   }
 
   .bilatzailea {
-    max-width: 45%;
+    flex: 1;
+    max-width: 40%;
+    margin: 0;
   }
 
   .nav-links {

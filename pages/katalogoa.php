@@ -59,12 +59,7 @@ while ($row = $result->fetch_assoc()) {
 
                 
                 <div class="irudia">
-                    <?php if ($p['argazkiak']): ?>
-                        <img src="../argazkiak/produktu_argakiak/<?= htmlspecialchars($p['argazkiak']) ?>"
-                             alt="<?= htmlspecialchars($p['izena']) ?>">
-                    <?php else: ?>
-                        <span class="irudi-falta">🍕</span>
-                    <?php endif; ?>
+                    <img src="../argazkiak/produktu_argakiak/<?= htmlspecialchars($p['argazkiak'] ?? '') ?>" alt="<?= htmlspecialchars($p['izena']) ?>">
                 </div>
 
 
