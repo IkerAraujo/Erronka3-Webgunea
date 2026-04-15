@@ -7,7 +7,7 @@
             </div>
 
             <form action="katalogoa.php" method="GET" class="bilatzailea">
-                <input type="text" name="keywords" placeholder="Bilatu produktuak...">
+                <input type="text" name="keywords" placeholder="Bilatu produktuak..." value="<?= htmlspecialchars($_GET['keywords'] ?? '') ?>">
                 <button type="submit">BILATU</button>
             </form>
 

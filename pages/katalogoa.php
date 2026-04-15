@@ -2,8 +2,17 @@
 session_start();
 include "../includes/konexioa.php";
 
-$sql = "SELECT * FROM pizzak";
-$result = $conn->query($sql);
+$bilaketa = trim($_GET['keywords'] ?? '');
+
+if ($bilaketa !== '') {
+    $stmt = $conn->prepare("SELECT * FROM pizzak WHERE izena LIKE ? OR ingredienteak LIKE ? OR mota LIKE ?");
+    $like = "%" . $bilaketa . "%";
+    $stmt->bind_param("sss", $like, $like, $like);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $result = $conn->query("SELECT * FROM pizzak");
+}
 
 $pizzak = [];
 while ($row = $result->fetch_assoc()) {
@@ -26,7 +35,11 @@ while ($row = $result->fetch_assoc()) {
 
     <div class="katalogo-burua">
         <h1>Gure Pizzak</h1>
-        <p>Tokiko osagaiekin egindako pizzarik onenak</p>
+        <?php if ($bilaketa !== ''): ?>
+            <p>"<?= htmlspecialchars($bilaketa) ?>" bilaketaren emaitzak: <?= count($pizzak) ?> pizza aurkitu</p>
+        <?php else: ?>
+            <p>Tokiko osagaiekin egindako pizzarik onenak</p>
+        <?php endif; ?>
     </div>
 
     <div class="iragazkiak">
@@ -46,21 +59,25 @@ while ($row = $result->fetch_assoc()) {
 
                 
                 <div class="irudia">
-                    <img src="/EuskoPizza/argazkiak/produktu_argazkiak/<?= $p['argazkiak'] ?>" 
-                    alt="<?= $p['izena'] ?>">
+                    <?php if ($p['argazkiak']): ?>
+                        <img src="../argazkiak/produktu_argakiak/<?= htmlspecialchars($p['argazkiak']) ?>"
+                             alt="<?= htmlspecialchars($p['izena']) ?>">
+                    <?php else: ?>
+                        <span class="irudi-falta">🍕</span>
+                    <?php endif; ?>
                 </div>
 
 
                 <div class="infoa">
-                    <h3><?= $p['izena'] ?></h3>
-                    <p><?= $p['ingredienteak'] ?></p>
+                    <h3><?= htmlspecialchars($p['izena']) ?></h3>
+                    <p><?= htmlspecialchars($p['ingredienteak']) ?></p>
                     <strong><?= number_format($p['prezioa'], 2) ?>€</strong>
 
                     <div class="botoiak">
                         <form action="karritoa.php" method="POST">
-                            <input type="hidden" name="id" value="<?= $p['id'] ?>">
-                            <input type="hidden" name="izena" value="<?= $p['izena'] ?>">
-                            <input type="hidden" name="prezioa" value="<?= $p['prezioa'] ?>">
+                            <input type="hidden" name="id" value="<?= (int)$p['id'] ?>">
+                            <input type="hidden" name="izena" value="<?= htmlspecialchars($p['izena']) ?>">
+                            <input type="hidden" name="prezioa" value="<?= (float)$p['prezioa'] ?>">
                             <button type="submit">Gehitu</button>
                         </form>
                     </div>

@@ -2,13 +2,15 @@
 session_start();
 include "../includes/konexioa.php";
 
-$xml = simplexml_load_file("../xml/puntuak.xml");
 $nirePuntuak = 0;
 
-foreach ($xml->erabiltzaile as $u) {
-    if ((string)$u->id === (string)$_SESSION['user_id']) {
-        $nirePuntuak = (int)$u->puntuak;
-        break;
+if (isset($_SESSION['user_id'])) {
+    $xml = simplexml_load_file("../xml/puntuak.xml");
+    foreach ($xml->erabiltzaile as $u) {
+        if ((string)$u->id === (string)$_SESSION['user_id']) {
+            $nirePuntuak = (int)$u->puntuak;
+            break;
+        }
     }
 }
 
@@ -45,8 +47,7 @@ while ($row = $result->fetch_assoc()) {
             <div class="produktu-txartela-mini">
 
                 <div class="irudia-mini">
-                    <img src="/EuskoPizza/argazkiak/produktu_argazkiak/<?= $p['argazkiak'] ?>"
-                         alt="">
+                    <img src="/EuskoPizza/argazkiak/produktu_argazkiak/<?= $p['argazkiak'] ?>">
                 </div>
 
                 <div class="infoa-mini">
