@@ -39,48 +39,47 @@ if (isset($_GET['hustu'])) {
 </head>
 <body>
 
-<div class="karrito-edukia">
-
 <?php include '../includes/navbar.php'; ?>
 
-<h1>Zure Karritoa</h1>
+<div class="karrito-edukia">
+    <h1>Zure Karritoa</h1>
 
-<?php if (empty($_SESSION['karrito'])): ?>
-
-    <p>Karritoa hutsik dago.</p>
-
-<?php else: ?>
-
-    <?php
-    $total = 0;
-    foreach($_SESSION['karrito'] as $id => $p):
-        $guztira = $p['prezioa'] * $p['kant'];
-        $total += $guztira;
-    ?>
-
-    <div class="karrito-item">
-        <div>
-            <h3><?= $p['izena'] ?></h3>
-            <p>Kantitatea: <?= $p['kant'] ?></p>
-            <strong><?= number_format($guztira,2) ?>€</strong>
+    <?php if (empty($_SESSION['karrito'])): ?>
+        <p class="karrito-hutsik">Karritoa hutsik dago</p>
+    <?php else: ?>
+        <div class="karrito-taula">
+            <?php
+            $total = 0;
+            foreach($_SESSION['karrito'] as $id => $p):
+                $guztira = $p['prezioa'] * $p['kant'];
+                $total += $guztira;
+            ?>
+                <div class="karrito-item">
+                    <div class="item-info">
+                        <h3><?= $p['izena'] ?></h3>
+                        <p>Kantitatea: <strong><?= $p['kant'] ?></strong></p>
+                    </div>
+                    <div class="item-prezioa">
+                        <p class="prezioa-unitaria"><?= number_format($p['prezioa'], 2) ?> €</p>
+                        <p class="prezioa-total"><strong><?= number_format($guztira, 2) ?> €</strong></p>
+                    </div>
+                    <a href="karritoa.php?kendu=<?= $id ?>" class="kendu-btn">Kendu</a>
+                </div>
+            <?php endforeach; ?>
         </div>
 
-        <a href="karritoa.php?kendu=<?= $id ?>">
-            <button class="kendu-btn">Kendu</button>
-        </a>
-    </div>
-
-    <?php endforeach; ?>
-
-    <p id="totala">Totala: <?= number_format($total, 2) ?> €</p>
-
-    <form action="erosita.php" method="POST">
-        <input type="hidden" name="totala" value="<?= $total ?>">
-        <button class="erosi-btn">Erosi orain</button>
-    </form>
-
-<?php endif; ?>
-
+        <div class="karrito-footer">
+            <p class="totala">Totala: <strong><?= number_format($total, 2) ?> €</strong></p>
+            
+            <div class="botoiak">
+                <a href="karritoa.php?hustu=1" class="btn-hustu">Hustu karritoa</a>
+                <form action="erosita.php" method="POST">
+                    <input type="hidden" name="totala" value="<?= $total ?>">
+                    <button class="btn-erosi">Erosi orain</button>
+                </form>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
 
 </body>

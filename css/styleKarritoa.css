@@ -163,57 +163,143 @@ nav {
 /* KARRITOA */
 
 .karrito-edukia {
-    width: 100%;
-    margin: auto;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.karrito-edukia h1 {
+    text-align: center;
+    color: #0f3460;
+    margin-bottom: 2rem;
+}
+
+.karrito-hutsik {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.karrito-taula {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .karrito-item {
-    background: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 1rem;
 }
 
-.karrito-item h3 { margin: 0; }
-.karrito-item strong { font-size: 1.2rem; }
+.karrito-item:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #0f3460;
+}
+
+.item-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.item-prezioa {
+    text-align: right;
+    min-width: 120px;
+}
+
+.prezioa-unitaria {
+    margin: 0;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.prezioa-total {
+    margin: 0.3rem 0 0 0;
+    color: #0f3460;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
 
 .kendu-btn {
+    padding: 0.5rem 1rem;
     background: #d84315;
     color: white;
-    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 6px;
-    margin-top: .5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .kendu-btn:hover {
     background: #bf360c;
 }
 
-#totala {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    font-weight: bold;
+.karrito-footer {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.erosi-btn {
-    display: block;
-    width: 100%;
-    padding: 1rem;
+.totala {
+    text-align: right;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #0f3460;
+}
+
+.botoiak {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-hustu {
+    padding: 0.75rem 1.5rem;
+    background: #dd7e50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-hustu:hover {
+    background: #d84315;
+}
+
+.btn-erosi {
+    padding: 0.75rem 1.5rem;
     background: #0f3460;
     color: white;
     border: none;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.erosi-btn:hover {
+.btn-erosi:hover {
     background: #0a2443;
 }
 

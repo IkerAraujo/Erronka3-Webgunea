@@ -27,7 +27,7 @@ session_start();
     </section>
 
     <footer>
-        <p> &copy 2026 EuskoPizza. Uraren baimena gordeta </p>
+        <p> &copy 2026 EuskoPizza.</p>
     </footer>
 
 </body>
