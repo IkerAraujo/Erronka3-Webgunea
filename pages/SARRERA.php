@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EuskoPizza</title>
     <link rel="stylesheet" href="../css/styleSarrera.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
 </head>
 <body>
 
@@ -26,9 +27,7 @@ session_start();
         </div>
     </section>
 
-    <footer>
-        <p> &copy 2026 EuskoPizza.</p>
-    </footer>
+    <?php include '../includes/footer.php'; ?>
 
 </body>
 </html>

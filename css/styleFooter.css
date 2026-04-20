@@ -1,0 +1,497 @@
+/* ===== FOOTER NAGUSIA ===== */
+
+.footer-nagusia {
+    background: linear-gradient(180deg, #0a2443 0%, #061529 100%);
+    color: rgba(255,255,255,0.75);
+    padding: 3.5rem 1.5rem 0;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+.footer-edukia {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-zutabea h4 {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.25rem;
+}
+
+.footer-titulua {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #d84315;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.footer-deskribapena {
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    max-width: 260px;
+}
+
+.footer-sare-sozialak {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.footer-sare-sozialak a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+.footer-sare-sozialak a:hover {
+    background: #d84315;
+    border-color: #d84315;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-zutabea ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-zutabea ul li a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+.footer-zutabea ul li a:hover {
+    color: #d84315;
+    transform: translateX(3px);
+}
+
+.ordutegia-zerrenda li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-telefono {
+    margin-top: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.footer-azpian {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+}
+
+.footer-azpian-estekak a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-azpian-estekak a:hover {
+    color: #d84315;
+}
+
+/* LEGAL ORRIALDEEN ESTILOA */
+.legal-orria {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.legal-goiburua {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+.legal-goiburua .legal-ikurra {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.legal-goiburua h1 {
+    font-size: 2rem;
+    color: #0f3460;
+    margin-bottom: 0.5rem;
+}
+
+.legal-goiburua .legal-data {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.legal-atala {
+    margin-bottom: 2.5rem;
+}
+
+.legal-atala h2 {
+    font-size: 1.1rem;
+    color: #0f3460;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 3px solid #d84315;
+}
+
+.legal-atala p,
+.legal-atala li {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.legal-atala ul {
+    padding-left: 1.5rem;
+}
+
+/* HISTORIA ORRIA */
+.historia-hero {
+    background: linear-gradient(135deg, #0f3460 0%, #1a6b9f 50%, #d84315 100%);
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.historia-hero::before {
+    content: '🍕';
+    position: absolute;
+    font-size: 12rem;
+    opacity: 0.05;
+    top: -2rem;
+    right: -2rem;
+}
+
+.historia-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.historia-hero .azpititulua {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.historia-edukia {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.denbora-lerroa {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.denbora-lerroa::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #d84315, #0f3460);
+}
+
+.dl-elementua {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+}
+
+.dl-elementua::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem;
+    top: 0.4rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d84315;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #d84315;
+}
+
+.dl-urtea {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #d84315;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+}
+
+.dl-elementua h3 {
+    font-size: 1.15rem;
+    color: #0f3460;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.dl-elementua p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.historia-balioak {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.balio-txartela {
+    background: #f8f9ff;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    border-left: 4px solid #d84315;
+}
+
+.balio-txartela .ikonoa {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.balio-txartela h3 {
+    color: #0f3460;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.balio-txartela p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* KONTAKTU ORRIA */
+.kontaktu-edukia {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.kontaktu-txartela {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border-top: 4px solid #d84315;
+}
+
+.kontaktu-txartela h2 {
+    color: #0f3460;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.kontaktu-info-zerrenda {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.kontaktu-info-zerrenda li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #555;
+}
+
+.kontaktu-info-zerrenda li .kit {
+    font-size: 1.1rem;
+    min-width: 1.5rem;
+}
+
+.kontaktu-form input,
+.kontaktu-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.kontaktu-form input:focus,
+.kontaktu-form textarea:focus {
+    outline: none;
+    border-color: #d84315;
+}
+
+.kontaktu-form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.kontaktu-form button {
+    width: 100%;
+    padding: 0.875rem;
+    background: #d84315;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.kontaktu-form button:hover {
+    background: #bf360c;
+}
+
+/* KOKAPENA */
+.mapa-edukia {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.mapa-kontenedora {
+    width: 100%;
+    height: 420px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+}
+
+.mapa-kontenedora iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.mapa-helbidea {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.mapa-helbidea-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex: 1 1 200px;
+}
+
+.mapa-helbidea-item .kit {
+    font-size: 1.25rem;
+}
+
+.mapa-helbidea-item div strong {
+    display: block;
+    color: #0f3460;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+.mapa-helbidea-item div span {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.orri-goiburua {
+    background: linear-gradient(135deg, #0f3460, #1a6b9f);
+    color: white;
+    text-align: center;
+    padding: 3.5rem 2rem;
+}
+
+.orri-goiburua .ikurra {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.orri-goiburua h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.orri-goiburua p {
+    opacity: 0.8;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* RESPONSIVE */
+@media (min-width: 640px) {
+    .footer-edukia {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .historia-balioak {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-azpian {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-edukia {
+        grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    }
+
+    .kontaktu-edukia {
+        grid-template-columns: 1fr 1.5fr;
+    }
+}

@@ -25,6 +25,7 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <title>Katalogoa - EuskoPizza</title>
     <link rel="stylesheet" href="../css/styleKatalogoa.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
 </head>
 
 <body>
@@ -84,9 +85,7 @@ while ($row = $result->fetch_assoc()) {
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2026 EuskoPizza</p>
-</footer>
+<?php include '../includes/footer.php'; ?>
 
 <script>
 function iragazi(mota) {
