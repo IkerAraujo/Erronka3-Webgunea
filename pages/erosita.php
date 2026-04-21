@@ -13,21 +13,47 @@ $abizena = $_SESSION['user_abizena'];
 $helbidea = $_SESSION['user_helbidea'];
 
 $totala = $_POST['totala'];
+$entrega_mota = $_POST['entrega_mota'] ?? 'dendan';
+$etxeko = ($entrega_mota === 'etxez-etxe');
+$entrega_helbidea = $etxeko ? trim($_POST['helbidea_entrega'] ?? $helbidea) : '';
 
 $stmt = $conn->prepare("
-    INSERT INTO erosketak (erabiltzaile_id, izena, abizena, helbidea, totala, data) 
+    INSERT INTO erosketak (web_erabiltzaile_id, izena, abizena, helbidea, totala, data)
     VALUES (?, ?, ?, ?, ?, NOW())
 ");
 
-$stmt->bind_param("isssd", 
-    $erabiltzaile_id, 
-    $izena, 
-    $abizena, 
-    $helbidea, 
+$stmt->bind_param("isssd",
+    $erabiltzaile_id,
+    $izena,
+    $abizena,
+    $helbidea,
     $totala
 );
 
 $stmt->execute();
+
+// Eskaera sukaldarian pantailan agertzeko
+$oharra = $izena . " " . $abizena . "|" . $entrega_helbidea;
+$stmt2 = $conn->prepare("INSERT INTO eskaerak (web_erabiltzaile_id, egoera, oharra, sortze_data, eguneratze_data) VALUES (?, 'Prestatzeko zain', ?, NOW(), NOW())");
+$stmt2->bind_param("is", $erabiltzaile_id, $oharra);
+$stmt2->execute();
+$eskaera_id = $conn->insert_id;
+
+// Eskaeraren elementuak txertatu
+$stmt3 = $conn->prepare("INSERT INTO eskaera_elementuak (eskaera_id, pizza_id, kantitatea, prezioa) VALUES (?, ?, ?, ?)");
+foreach ($_SESSION['karrito'] as $pizza_id => $p) {
+    $kantitatea = (int)$p['kant'];
+    $prezioa_bak = (float)$p['prezioa'];
+    $stmt3->bind_param("iiid", $eskaera_id, $pizza_id, $kantitatea, $prezioa_bak);
+    $stmt3->execute();
+}
+
+// Etxez-etxekoa bada, banaketak taulan txertatu
+if ($etxeko && $entrega_helbidea !== '') {
+    $stmt4 = $conn->prepare("INSERT INTO banaketak (eskaera_id, helbidea) VALUES (?, ?)");
+    $stmt4->bind_param("is", $eskaera_id, $entrega_helbidea);
+    $stmt4->execute();
+}
 
 $_SESSION['karrito'] = [];
 
@@ -98,9 +124,12 @@ a {
 <h1>Eskerrik asko, <?= $izena ?> <?= $abizena ?>!</h1>
 <p>Zure erosketa ondo egin da.</p>
 <p>Totala: <strong><?= $totala ?> €</strong></p>
-<p>Helbidea: <strong><?= $helbidea ?></strong></p>
+<p>Entrega mota: <strong><?= $etxeko ? 'Etxez-etxe' : 'Dendan jaso' ?></strong></p>
+<?php if ($etxeko && $entrega_helbidea !== ''): ?>
+<p>Helbidea: <strong><?= htmlspecialchars($entrega_helbidea) ?></strong></p>
+<?php endif; ?>
 
-<a href="Katalogoa.php">Itzuli Katalogora</a>
+<a href="katalogoa.php">Itzuli Katalogora</a>
 
 </body>
 </html>

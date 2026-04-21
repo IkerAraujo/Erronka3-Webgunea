@@ -1,14 +1,16 @@
-<?php 
+<?php
 session_start();
+include '../includes/config_irakurri.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="eu">
+<html lang="<?= $cfg['hizkuntza'] ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EuskoPizza</title>
+    <title><?= htmlspecialchars($cfg['denda_izena']) ?></title>
     <link rel="stylesheet" href="../css/styleSarrera.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
 </head>
 <body>
 
@@ -26,9 +28,7 @@ session_start();
         </div>
     </section>
 
-    <footer>
-        <p> &copy 2026 EuskoPizza. Uraren baimena gordeta </p>
-    </footer>
+    <?php include '../includes/footer.php'; ?>
 
 </body>
 </html>
