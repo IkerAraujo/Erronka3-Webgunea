@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gmail = $_POST['gmail'];
     $pasahitza = $_POST['pasahitza'];
 
-    $checkNan = $conn->prepare("SELECT id FROM erabiltzaileak WHERE nan = ?");
+    $checkNan = $conn->prepare("SELECT id FROM web_erabiltzaileak WHERE nan = ?");
     $checkNan->bind_param("s", $nan);
     $checkNan->execute();
     $nanResult = $checkNan->get_result();
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     else {
-        $checkGmail = $conn->prepare("SELECT id FROM erabiltzaileak WHERE gmail = ?");
+        $checkGmail = $conn->prepare("SELECT id FROM web_erabiltzaileak WHERE gmail = ?");
         $checkGmail->bind_param("s", $gmail);
         $checkGmail->execute();
         $gmailResult = $checkGmail->get_result();
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($errorea == "") {
-        $stmt = $conn->prepare("INSERT INTO erabiltzaileak 
+        $stmt = $conn->prepare("INSERT INTO web_erabiltzaileak
         (izena, abizena, nan, telefonoa, helbidea, gmail, pasahitza)
         VALUES (?, ?, ?, ?, ?, ?, ?)");
 

@@ -42,7 +42,7 @@ if ($puntuAktualak >= $kostua) {
     $xml->asXML($xmlPath);
 
     $stmt = $conn->prepare("
-        INSERT INTO puntuErosketak (erabiltzaile_id, pizza_id, izena, kostua, data)
+        INSERT INTO puntuerosketak (web_erabiltzaile_id, pizza_id, izena, kostua, data)
         VALUES (?, ?, ?, ?, NOW())
     ");
     $stmt->bind_param("iisi", $uid, $pizza_id, $izena, $kostua);

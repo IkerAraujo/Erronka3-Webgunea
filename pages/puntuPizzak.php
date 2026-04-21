@@ -5,11 +5,16 @@ include "../includes/konexioa.php";
 $nirePuntuak = 0;
 
 if (isset($_SESSION['user_id'])) {
-    $xml = simplexml_load_file("../xml/puntuak.xml");
-    foreach ($xml->erabiltzaile as $u) {
-        if ((string)$u->id === (string)$_SESSION['user_id']) {
-            $nirePuntuak = (int)$u->puntuak;
-            break;
+    $xmlBidea = __DIR__ . "/../xml/puntuak.xml";
+    if (file_exists($xmlBidea)) {
+        $xml = simplexml_load_file($xmlBidea);
+        if ($xml) {
+            foreach ($xml->erabiltzaile as $u) {
+                if ((string)$u->id === (string)$_SESSION['user_id']) {
+                    $nirePuntuak = (int)$u->puntuak;
+                    break;
+                }
+            }
         }
     }
 }
@@ -29,6 +34,7 @@ while ($row = $result->fetch_assoc()) {
     <title>Puntuzko Pizzak</title>
     <link rel="stylesheet" href="../css/stylePuntuPizzak.css">
     <link rel="stylesheet" href="../css/styleSarrera.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
 </head>
 <body>
 
@@ -47,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
             <div class="produktu-txartela-mini">
 
                 <div class="irudia-mini">
-                    <img src="/EuskoPizza/argazkiak/produktu_argazkiak/<?= $p['argazkiak'] ?>">
+                    <img src="../argazkiak/produktu_argakiak/<?= htmlspecialchars($p['argazkiak'] ?? '') ?>" alt="<?= htmlspecialchars($p['izena']) ?>">
                 </div>
 
                 <div class="infoa-mini">
@@ -72,6 +78,8 @@ while ($row = $result->fetch_assoc()) {
     </div>
 
 </div>
+
+<?php include '../includes/footer.php'; ?>
 
 </body>
 </html>

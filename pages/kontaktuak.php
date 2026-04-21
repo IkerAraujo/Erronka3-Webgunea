@@ -1,18 +1,24 @@
 <?php
 session_start();
+include "../includes/konexioa.php";
 
 $mezua_bidalia = false;
 $errorea = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $izena = htmlspecialchars(trim($_POST['izena'] ?? ''));
-    $gmail  = htmlspecialchars(trim($_POST['gmail'] ?? ''));
-    $gaia   = htmlspecialchars(trim($_POST['gaia'] ?? ''));
-    $testua = htmlspecialchars(trim($_POST['testua'] ?? ''));
+    $izena  = trim($_POST['izena']  ?? '');
+    $gmail  = trim($_POST['gmail']  ?? '');
+    $gaia   = trim($_POST['gaia']   ?? '');
+    $testua = trim($_POST['testua'] ?? '');
 
     if ($izena && $gmail && $gaia && $testua) {
-        // Hemen posta bidalketa gehitu daiteke: mail(), PHPMailer, etab.
-        $mezua_bidalia = true;
+        $stmt = $conn->prepare("INSERT INTO kontaktu_mezuak (izena, gmail, gaia, testua) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $izena, $gmail, $gaia, $testua);
+        if ($stmt->execute()) {
+            $mezua_bidalia = true;
+        } else {
+            $errorea = "Errorea mezua gordetzean. Saiatu berriro.";
+        }
     } else {
         $errorea = "Mesedez, bete eremu guztiak.";
     }
@@ -93,12 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <form method="POST" class="kontaktu-form">
                 <input type="text" name="izena" placeholder="Zure izena *"
-                    value="<?= htmlspecialchars($_POST['izena'] ?? '') ?>" required>
+                    value="<?= htmlspecialchars($izena ?? $_SESSION['user_izena'] ?? '') ?>" required>
                 <input type="email" name="gmail" placeholder="Zure emaila *"
-                    value="<?= htmlspecialchars($_POST['gmail'] ?? '') ?>" required>
+                    value="<?= htmlspecialchars($gmail ?? $_SESSION['user_gmail'] ?? '') ?>" required>
                 <input type="text" name="gaia" placeholder="Gaia *"
-                    value="<?= htmlspecialchars($_POST['gaia'] ?? '') ?>" required>
-                <textarea name="testua" placeholder="Zure mezua..." required><?= htmlspecialchars($_POST['testua'] ?? '') ?></textarea>
+                    value="<?= htmlspecialchars($gaia ?? '') ?>" required>
+                <textarea name="testua" placeholder="Zure mezua..." required><?= htmlspecialchars($testua ?? '') ?></textarea>
                 <button type="submit">Bidali ✉️</button>
             </form>
 

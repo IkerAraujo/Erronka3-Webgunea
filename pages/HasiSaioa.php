@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gmail = $_POST['gmail'];
     $pasahitza = $_POST['pasahitza'];
 
-    $sql = "SELECT * FROM erabiltzaileak WHERE gmail = ?";
+    $sql = "SELECT * FROM web_erabiltzaileak WHERE gmail = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $gmail);
     $stmt->execute();
@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_izena'] = $row['izena'];
             $_SESSION['user_abizena'] = $row['abizena'];
             $_SESSION['user_helbidea'] = $row['helbidea'];
+            $_SESSION['user_gmail'] = $row['gmail'];
 
             header("Location: ../pages/SARRERA.php");
         

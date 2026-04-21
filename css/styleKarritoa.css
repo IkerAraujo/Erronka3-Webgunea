@@ -176,9 +176,27 @@ nav {
 
 .karrito-hutsik {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     color: #666;
     font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-katalogora {
+    padding: 0.75rem 2rem;
+    background: #d84315;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-katalogora:hover {
+    background: #bf360c;
 }
 
 .karrito-taula {
@@ -235,21 +253,64 @@ nav {
     font-weight: 600;
 }
 
-.kendu-btn {
-    padding: 0.5rem 1rem;
-    background: #d84315;
+.kantitate-kontrolak {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+}
+
+.kant-btn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0f3460;
     color: white;
-    border: none;
     border-radius: 4px;
-    cursor: pointer;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: background 0.2s;
+    line-height: 1;
+}
+
+.kant-btn:hover {
+    background: #d84315;
+}
+
+.kant-zenbakia {
+    min-width: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0f3460;
+}
+
+.kendu-btn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #999;
+    border: 1.5px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.2s;
+    flex-shrink: 0;
 }
 
 .kendu-btn:hover {
-    background: #bf360c;
+    background: #d84315;
+    border-color: #d84315;
+    color: white;
 }
 
 .karrito-footer {
@@ -301,6 +362,65 @@ nav {
 
 .btn-erosi:hover {
     background: #0a2443;
+}
+
+/* ENTREGA AUKERA */
+
+.entrega-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.entrega-aukera {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.entrega-titulua {
+    font-weight: 600;
+    color: #0f3460;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.entrega-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.entrega-radio input[type="radio"] {
+    accent-color: #d84315;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.helbide-kutxa {
+    width: 100%;
+    max-width: 380px;
+}
+
+.helbide-kutxa input {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.helbide-kutxa input:focus {
+    border-color: #d84315;
 }
 
 /* TABLETA */
